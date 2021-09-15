@@ -1,10 +1,6 @@
-import * as React from "react";
-import { Text, Box } from "native-base";
-
-// Import Screen
-import FormNativeBase from "./src/screens/formNativeBase";
-import Hello from "./src/screens/hello";
+import * as React from 'react';
+import Calculator from './src/screens/Calculator';
 
 export default function Container() {
-  return <FormNativeBase />; //   Use Screen
+  return <Calculator />;
 }
