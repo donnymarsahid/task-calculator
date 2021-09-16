@@ -5,7 +5,7 @@ import styles from './style/calculator';
 export default function Calculator() {
   return (
     <Box style={styles.box} bg="primary.100">
-      <Text>Hello Guys</Text>
+      <Text>Hello Guys Good Job</Text>
     </Box>
   );
 }

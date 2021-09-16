@@ -3,7 +3,7 @@ import { Box, Text, Pressable } from 'native-base';
 import { FlatList } from 'react-native';
 
 export default function ListSoc({ navigation }) {
-  const socialMedia = ['Facebook', 'Twitter', 'Instagram', 'Linkedin'];
+  const socialMedia = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Dribbble'];
 
   const handlerPress = (value) => {
     navigation.navigate('Detail Social', { value });
