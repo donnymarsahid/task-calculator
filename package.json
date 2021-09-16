@@ -8,7 +8,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo-google-fonts/balsamiq-sans": "^0.2.0",
     "@expo-google-fonts/poppins": "^0.2.0",
     "@expo/vector-icons": "^12.0.5",
     "@react-navigation/bottom-tabs": "^6.0.5",
