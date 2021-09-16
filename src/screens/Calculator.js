@@ -1,14 +1,28 @@
 import * as React from 'react';
-import { Box, Heading, Text, HStack, Button } from 'native-base';
+import { Box, Heading, Text, HStack, Button, Pressable } from 'native-base';
 import styles from './style/calculator';
 
-export default function Calculator() {
+export default function Calculator({ navigation }) {
   return (
     <Box style={styles.box} bg="primary.100">
       <Heading style={styles.heading}>
         <Text color="primary.50" style={styles.textHeading} font="Poppins.semibold.600">
           Display
         </Text>
+        <Pressable
+          onPress={() => navigation.navigate('Hello')}
+          style={{
+            backgroundColor: '#487eb0',
+            height: 40,
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 10,
+            margin: 20,
+          }}
+        >
+          <Text>halo</Text>
+        </Pressable>
       </Heading>
       <Heading style={styles.result}>
         <Text color="font.50" style={styles.textResult}>
@@ -68,7 +82,7 @@ export default function Calculator() {
           <Text style={styles.btnText}>9</Text>
         </Button>
         <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>10</Text>
+          <Text style={styles.btnText}>0</Text>
         </Button>
       </HStack>
     </Box>
