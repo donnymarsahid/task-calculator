@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  box: {
-    height: '100%',
-    width: '100%',
+  boxContainer: {
+    height: "100%",
+    width: "100%",
     padding: 22,
     paddingTop: 80,
   },
@@ -12,38 +12,41 @@ export default StyleSheet.create({
   },
   textHeading: {
     fontSize: 28,
+    color: "white",
   },
   result: {
-    backgroundColor: 'white',
-    height: 85,
-    marginTop: 20,
-    justifyContent: 'center',
-    padding: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    height: 120,
+    marginBottom: 40,
     borderRadius: 8,
-    marginBottom: 50,
+    padding: 10,
+  },
+  btnClear: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    paddingRight: 10,
   },
   textResult: {
-    fontSize: 26,
+    fontSize: 28,
   },
-  HStack: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+  boxInput: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 15,
   },
-  btnNumber: {
-    width: '22%',
-    backgroundColor: '#FF5757',
-    textAlign: 'center',
+  btn: {
+    width: "22%",
+    height: 80,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
   },
-  btnAction: {
-    width: '22%',
-    height: 70,
-    backgroundColor: '#930707',
-    textAlign: 'center',
-  },
-  btnText: {
-    fontSize: 30,
-    color: 'white',
+  textBtn: {
+    fontSize: 32,
+    color: "white",
   },
   textStar: {
     paddingTop: 15,

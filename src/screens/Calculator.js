@@ -1,90 +1,151 @@
-import * as React from 'react';
-import { Box, Heading, Text, HStack, Button, Pressable } from 'native-base';
-import styles from './style/calculator';
+import React, { useState } from "react";
+import { Box, Heading, Text, Pressable } from "native-base";
+import styles from "./style/calculator";
 
-export default function Calculator({ navigation }) {
+export default function Calculator() {
+  const [result, setResult] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const inputValue = (value) => {
+    if (count === 0) {
+      setCount(value);
+    } else {
+      setCount(count + "" + value);
+    }
+  };
+
+  const countResult = () => {
+    let countEval = eval(count);
+    setCount(countEval);
+  };
+
   return (
-    <Box style={styles.box} bg="primary.100">
+    <Box style={styles.boxContainer} bg="primary.50">
       <Heading style={styles.heading}>
-        <Text color="primary.50" style={styles.textHeading} font="Poppins.semibold.600">
-          Display
-        </Text>
-        <Pressable
-          onPress={() => navigation.navigate('Hello')}
-          style={{
-            backgroundColor: '#487eb0',
-            height: 40,
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 10,
-            margin: 20,
-          }}
-        >
-          <Text>halo</Text>
+        <Text style={styles.textHeading}>Display</Text>
+      </Heading>
+      <Box style={styles.result}>
+        <Text style={styles.textResult}>{count}</Text>
+        <Pressable onPress={() => setCount(0)} style={styles.btnClear}>
+          <Text color="primary.200">clear</Text>
         </Pressable>
-      </Heading>
-      <Heading style={styles.result}>
-        <Text color="font.50" style={styles.textResult}>
-          100
-        </Text>
-      </Heading>
-      <HStack style={styles.HStack}>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>1</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>2</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={styles.btnText}>-</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={styles.btnText}>+</Text>
-        </Button>
-      </HStack>
-      <HStack style={styles.HStack}>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>3</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>4</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={styles.btnText}>/</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={[styles.btnText, styles.textStar]}>*</Text>
-        </Button>
-      </HStack>
-      <HStack style={styles.HStack}>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>5</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>6</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={styles.btnText}>%</Text>
-        </Button>
-        <Button style={styles.btnAction}>
-          <Text style={styles.btnText}>=</Text>
-        </Button>
-      </HStack>
-      <HStack style={styles.HStack}>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>7</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>8</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>9</Text>
-        </Button>
-        <Button style={styles.btnNumber}>
-          <Text style={styles.btnText}>0</Text>
-        </Button>
-      </HStack>
+      </Box>
+      <Box style={styles.boxInput}>
+        <Pressable
+          onPress={() => inputValue(1)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>1</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(2)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>2</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue("-")}
+          bg="primary.200"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>-</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue("+")}
+          bg="primary.200"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>+</Text>
+        </Pressable>
+      </Box>
+      <Box style={styles.boxInput}>
+        <Pressable
+          onPress={() => inputValue(3)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>3</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(4)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>4</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue("/")}
+          bg="primary.200"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>/</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue("*")}
+          bg="primary.200"
+          style={styles.btn}
+        >
+          <Text style={[styles.textBtn, styles.textStar]}>*</Text>
+        </Pressable>
+      </Box>
+      <Box style={styles.boxInput}>
+        <Pressable
+          onPress={() => inputValue(5)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>5</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(6)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>6</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue("%")}
+          bg="primary.200"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>%</Text>
+        </Pressable>
+        <Pressable onPress={countResult} bg="primary.200" style={styles.btn}>
+          <Text style={styles.textBtn}>=</Text>
+        </Pressable>
+      </Box>
+      <Box style={styles.boxInput}>
+        <Pressable
+          onPress={() => inputValue(7)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>7</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(8)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>8</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(9)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>9</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => inputValue(0)}
+          bg="primary.100"
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>0</Text>
+        </Pressable>
+      </Box>
     </Box>
   );
 }

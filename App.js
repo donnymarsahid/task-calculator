@@ -1,8 +1,13 @@
-import React from 'react';
-import { NativeBaseProvider, extendTheme } from 'native-base';
-import AppLoading from 'expo-app-loading';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import Container from './Container';
+import React from "react";
+import { NativeBaseProvider, extendTheme } from "native-base";
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
+import Calculator from "./src/screens/Calculator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -14,26 +19,22 @@ export default function App() {
   const fontConfig = {
     Poppins: {
       400: {
-        normal: 'Poppins_400Regular',
+        normal: "Poppins_400Regular",
       },
       500: {
-        medium: 'Poppins_500Medium',
+        medium: "Poppins_500Medium",
       },
       600: {
-        semiBold: 'Poppins_600SemiBold',
+        semiBold: "Poppins_600SemiBold",
       },
     },
   };
 
   const customeColor = {
     primary: {
-      50: '#FFFFFF',
-      100: '#FFA0A0',
-      200: '#FF5757',
-      300: '#930707',
-    },
-    font: {
-      50: '#3D3D3D',
+      50: "#FFA0A0",
+      100: "#FF5757",
+      200: "#930707",
     },
   };
 
@@ -41,11 +42,11 @@ export default function App() {
     colors: customeColor,
     fontConfig,
     fonts: {
-      heading: 'Poppins',
-      body: 'Poppins',
-      mono: 'Poppins',
+      heading: "Poppins",
+      body: "Poppins",
+      mono: "Poppins",
     },
-    config: { initialColorMode: 'light' },
+    config: { initialColorMode: "light" },
   });
 
   if (!fontsLoaded) {
@@ -53,7 +54,7 @@ export default function App() {
   } else {
     return (
       <NativeBaseProvider theme={theme}>
-        <Container />
+        <Calculator />
       </NativeBaseProvider>
     );
   }
